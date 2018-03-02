@@ -245,7 +245,7 @@ static const CGFloat kFooterTextViewHorizontalInset = 8.0f;
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-  return 3;
+  return 2;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView
