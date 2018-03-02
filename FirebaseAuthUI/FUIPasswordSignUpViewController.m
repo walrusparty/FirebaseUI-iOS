@@ -163,7 +163,7 @@ static const CGFloat kFooterTextViewHorizontalInset = 8.0f;
 - (void)save {
   [self signUpWithEmail:_emailField.text
             andPassword:_passwordField.text
-            andUsername:_nameField.text];
+            andUsername:"default"];
 }
 
 - (void)signUpWithEmail:(NSString *)email
@@ -238,8 +238,7 @@ static const CGFloat kFooterTextViewHorizontalInset = 8.0f;
             orUserName:(NSString *)username {
 
   BOOL enableActionButton = email.length > 0
-                            && password.length > 0
-                            && username.length > 0;
+                            && password.length > 0;
   self.navigationItem.rightBarButtonItem.enabled = enableActionButton;
 }
 
@@ -271,14 +270,6 @@ static const CGFloat kFooterTextViewHorizontalInset = 8.0f;
     _emailField.autocorrectionType = UITextAutocorrectionTypeNo;
     _emailField.autocapitalizationType = UITextAutocapitalizationTypeNone;
   } else if (indexPath.row == 1) {
-    cell.label.text = FUILocalizedString(kStr_Name);
-    cell.accessibilityIdentifier = kNameSignUpCellAccessibilityID;
-    _nameField = cell.textField;
-    _nameField.placeholder = FUILocalizedString(kStr_FirstAndLastName);
-    _nameField.secureTextEntry = NO;
-    _nameField.returnKeyType = UIReturnKeyNext;
-    _nameField.keyboardType = UIKeyboardTypeDefault;
-  } else if (indexPath.row == 2) {
     cell.label.text = FUILocalizedString(kStr_Password);
     cell.accessibilityIdentifier = kPasswordSignUpCellAccessibilityID;
     _passwordField = cell.textField;
